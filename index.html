@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app="myShop">
+
+<head>
+    <meta charset='UTF-8'>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Shoppy McShopface</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Pathway+Gothic+One|Sigmar+One|Varela+Round' rel='stylesheet'>
+    <link rel="stylesheet" href="lib/styles/main.min.css">
+</head>
+
+<body ng-controller='ShopItemsController as items'>
+    <div class='container'>
+      <nav>
+        <h1>Little Shop of Horror [Inventory]</h1>
+      </nav>
+        <div class="listContainer">
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quanity</th>
+                        <th>Color</th>
+                    </tr>
+                    <tr ng-repeat="item in items.list">
+                        <td>{{item.name}}<img src="{{items.showSale(item.discount)}}" /></td>
+                        <td>$ {{items.salePrice(item.price, item.discount)}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.color}}</td>
+                    </tr>
+                </table>
+        </div>
+
+    </div>
+
+    <script src="lib/js/vendor.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="lib/js/app.js"></script>
+</body>
+
+</html>
